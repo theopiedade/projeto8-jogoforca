@@ -19,12 +19,20 @@ function App() {
   const [gameState, stateGameState] = useState("waiting");
   const [gameCount, setgameCount] = useState(0);
   const [gameImg, setGameImg] = useState(img[0]);
+  const [word, setWord] = useState("");
 
   function GameStart() {
     setDisabledState(false);
     stateGameState("playing");
     setgameCount(0);
     setGameImg(img[0]);
+  }
+
+  function SortWord() {
+    const num = Math.floor(Math.random() * palavras.length);
+    console.log("Palavra:"+palavras[num]);
+    setWord(palavras[num]);
+
   }
 
     console.log("gameState:"+gameState);
