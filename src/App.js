@@ -26,21 +26,23 @@ function App() {
     stateGameState("playing");
     setgameCount(0);
     setGameImg(img[0]);
+    setWord(SortWord());
   }
 
   function SortWord() {
     const num = Math.floor(Math.random() * palavras.length);
-    console.log("Palavra:"+palavras[num]);
-    setWord(palavras[num]);
-
+    return palavras[num];
   }
-
+    console.log("Palavra:"+word);
     console.log("gameState:"+gameState);
     return (
       <div className="container">
-        <div className="containerForkAndButton">
+        <div className="containerForkButtonWord">
           <img src={`/assets/img/`+gameImg}/>
-          <button onClick={() => GameStart()}>Escolher palavra</button>
+          <div className="containerButtonWord">
+            <button onClick={() => GameStart()}>Escolher palavra</button>
+            <div className="containerWord">_ _ _ _ _ _ _ _ _ _</div>
+          </div>
         </div>
         <div className="containerWords">
           {
