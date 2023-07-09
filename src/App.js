@@ -20,19 +20,38 @@ function App() {
   const [gameCount, setgameCount] = useState(0);
   const [gameImg, setGameImg] = useState(img[0]);
   const [word, setWord] = useState("");
+  const [wordArray, setWordArray] = useState([]);
+  const [wordArrayUnderlined, setWordArrayUnderlined] = useState([]);
 
   function GameStart() {
+    SelectWord();
     setDisabledState(false);
     stateGameState("playing");
     setgameCount(0);
     setGameImg(img[0]);
-    setWord(SortWord());
   }
 
-  function SortWord() {
+  function SelectWord() {
     const num = Math.floor(Math.random() * palavras.length);
-    return palavras[num];
+    const wordSelected = palavras[num];
+
+    const array1 = wordSelected.split('');
+    setWordArray(array1);
+
+    const array2 = [];
+    array1.map( letra => array2.push('_') );
+    setWordArrayUnderlined(array2);
+
+    console.log("array1: "+array1);
+    console.log("array2: "+array2);
+
+    setWord(wordSelected);
   }
+
+  function ConstruWordArrays() {
+    
+  }
+
     console.log("Palavra:"+word);
     console.log("gameState:"+gameState);
     return (
@@ -41,7 +60,12 @@ function App() {
           <img src={`/assets/img/`+gameImg}/>
           <div className="containerButtonWord">
             <button onClick={() => GameStart()}>Escolher palavra</button>
-            <div className="containerWord">_ _ _ _ _ _ _ _ _ _</div>
+            <div className="containerWord">
+              {
+                wordArrayUnderlined.map(letra => letra+" ")
+              }
+            
+            </div>
           </div>
         </div>
         <div className="containerWords">
