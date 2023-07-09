@@ -1,6 +1,12 @@
 
-export default function Letras (props) {
+export default function Letras ({key, letter, disabledState, 
+    setDisabledState, lettersSelected,setLettersSelected}) {
+
+    function letterSelect(props) {
+        
+    }
+
     return (
-        <button disabled={props.state} className={props.state ? "disabled" : "enabled"}>{ props.letra }</button>
+        <button onClick={letterSelect(letter)} disabled={disabledState} className={disabledState ? "disabled" : "enabled"}>{ props.letra }</button>
     );
 }

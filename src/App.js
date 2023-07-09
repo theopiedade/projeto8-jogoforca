@@ -8,7 +8,7 @@ const img = [
   "forca4.png", "forca5.png", "forca6.png"
 ]
 
-const alfabeto = [
+const alfabet = [
   "A","B","C","D","E","F","G","H","I",
   "J","K","L","M","N","O","P","Q","R",
   "S","T","U","V","W","X","Y","Z"
@@ -22,6 +22,7 @@ function App() {
   const [word, setWord] = useState("");
   const [wordArray, setWordArray] = useState([]);
   const [wordArrayUnderlined, setWordArrayUnderlined] = useState([]);
+  const [lettersSelected, setLetterSelected] = [];
 
   function GameStart() {
     SelectWord();
@@ -62,8 +63,8 @@ function App() {
         </div>
         <div className="containerWords">
           {
-        alfabeto.map( letra => 
-                  <Letras key={letra} letra={letra} state={disabledState} />
+        alfabet.map( letter => 
+                  <Letras key={letter} letter={letter} disabledState={disabledState} setDisabledState={setDisabledState} />
               )
           }
         </div>
