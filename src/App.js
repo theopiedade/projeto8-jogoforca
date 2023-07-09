@@ -5,7 +5,8 @@ function App() {
   return (
     <div className="Container">
       <div className="containerForkAndButton">
-        <img src='../src/assets/forca0.png'/>
+        <img src='/assets/forca0.png'/>
+        <button>Escolher palavra</button>
       </div>
     </div>
   );
