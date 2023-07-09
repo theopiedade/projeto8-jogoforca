@@ -42,18 +42,10 @@ function App() {
     array1.map( letra => array2.push('_') );
     setWordArrayUnderlined(array2);
 
-    console.log("array1: "+array1);
-    console.log("array2: "+array2);
-
     setWord(wordSelected);
   }
 
-  function ConstruWordArrays() {
-    
-  }
 
-    console.log("Palavra:"+word);
-    console.log("gameState:"+gameState);
     return (
       <div className="container">
         <div className="containerForkButtonWord">

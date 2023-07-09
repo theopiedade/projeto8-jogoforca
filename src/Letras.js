@@ -1,6 +1,6 @@
 
 export default function Letras (props) {
     return (
-        <button disabled={props.state}>{ props.letra }</button>
+        <button disabled={props.state} className={props.state ? "disabled" : "enabled"}>{ props.letra }</button>
     );
 }
