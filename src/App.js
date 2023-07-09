@@ -1,6 +1,7 @@
 import "../src/css/style.css"
 import palavras from "./palavras";
 import Letras from "./Letras";
+import { useState } from "react";
 
 const alfabeto = [
   "A","B","C","D","E","F","G","H","I",
@@ -9,8 +10,9 @@ const alfabeto = [
 ]
 
 function App() {
+  const [disabledState, setDisabledState] = useState("true");
   return (
-    <div className="Container">
+    <div className="container">
       <div className="containerForkAndButton">
         <img src="/assets/forca0.png"/>
         <button>Escolher palavra</button>
@@ -18,7 +20,7 @@ function App() {
       <div className="containerWords">
         {
       alfabeto.map( letra => 
-                <Letras key={letra} letra={letra} />
+                <Letras key={letra} letra={letra} state={disabledState} />
              )
         }
       </div>
