@@ -1,73 +1,40 @@
 import "../src/css/style.css"
-import palavras from "./palavras";
 import Letras from "./Letras";
+import Jogo from "./Jogo";
 import { useState } from "react";
 
-const img = [
-  "forca0.png", "forca1.png", "forca2.png", "forca3.png", 
-  "forca4.png", "forca5.png", "forca6.png"
-]
-
-const alfabet = [
-  "A","B","C","D","E","F","G","H","I",
-  "J","K","L","M","N","O","P","Q","R",
-  "S","T","U","V","W","X","Y","Z"
-]
-
 function App() {
-  const [disabledState, setDisabledState] = useState(true);
-  const [gameState, stateGameState] = useState("waiting");
-  const [gameCount, setgameCount] = useState(0);
-  const [gameImg, setGameImg] = useState(img[0]);
+  
+  const [gameState, setGameState] = useState("init");
+  const [gameCount, setGameCount] = useState(0);
   const [word, setWord] = useState("");
   const [wordArray, setWordArray] = useState([]);
   const [wordArrayUnderlined, setWordArrayUnderlined] = useState([]);
-  const [lettersSelected, setLetterSelected] = [];
-
-  function GameStart() {
-    SelectWord();
-    setDisabledState(false);
-    stateGameState("playing");
-    setgameCount(0);
-    setGameImg(img[0]);
-  }
-
-  function SelectWord() {
-    const num = Math.floor(Math.random() * palavras.length);
-    const wordSelected = palavras[num];
-
-    const array1 = wordSelected.split('');
-    setWordArray(array1);
-
-    const array2 = [];
-    array1.map( letra => array2.push('_') );
-    setWordArrayUnderlined(array2);
-
-    setWord(wordSelected);
-  }
+  const [lettersSelected, setLettersSelected] = useState([]);
+  const [disabledState, setDisabledState] = useState(true);
+  const [gameImg, setGameImg] = useState(0);
 
 
     return (
       <div className="container">
-        <div className="containerForkButtonWord">
-          <img src={`/assets/img/`+gameImg}/>
-          <div className="containerButtonWord">
-            <button onClick={() => GameStart()}>Escolher palavra</button>
-            <div className="containerWord">
-              {
-                wordArrayUnderlined.map(letra => letra+" ")
-              }
-            
-            </div>
-          </div>
-        </div>
-        <div className="containerWords">
-          {
-        alfabet.map( letter => 
-                  <Letras key={letter} letter={letter} disabledState={disabledState} setDisabledState={setDisabledState} />
-              )
-          }
-        </div>
+        <Jogo 
+          gameState={gameState} setGameState={setGameState}
+          gameCount={gameCount} setGameCount={setGameCount} 
+          word={word} setWord={setWord}
+          wordArray={wordArray} setWordArray={setWordArray}
+          wordArrayUnderlined={wordArrayUnderlined} 
+          setWordArrayUnderlined={setWordArrayUnderlined}
+          disabledState={disabledState} setDisabledState={setDisabledState}
+          gameImg={gameImg} setGameImg={setGameImg}
+        />
+        <Letras gameState={gameState} setGameState={setGameState} 
+          gameCount={gameCount} setGameCount={setGameCount}
+          wordArray={wordArray} setWordArray={setWordArray}
+          wordArrayUnderlined={wordArrayUnderlined} setWordArrayUnderlined={setWordArrayUnderlined}
+          lettersSelected={lettersSelected} setLettersSelected={setLettersSelected}
+          disabledState={disabledState} setDisabledState={setDisabledState}
+          setGameImg={setGameImg} word={word}
+        />
       </div>
     );
 
