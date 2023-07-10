@@ -20,21 +20,18 @@ function App() {
         <Jogo 
           gameState={gameState} setGameState={setGameState}
           gameCount={gameCount} setGameCount={setGameCount} 
-          word={word} setWord={setWord}
-          wordArray={wordArray} setWordArray={setWordArray}
+          setWord={setWord}
+          setWordArray={setWordArray}
           wordArrayUnderlined={wordArrayUnderlined} 
           setWordArrayUnderlined={setWordArrayUnderlined}
-          disabledState={disabledState} setDisabledState={setDisabledState}
-          gameImg={gameImg} setGameImg={setGameImg} lettersSelected={lettersSelected}
-          setLettersSelected={setLettersSelected}
+          setGameImg={setGameImg} setLettersSelected={setLettersSelected}
         />
         <Letras gameState={gameState} setGameState={setGameState} 
           gameCount={gameCount} setGameCount={setGameCount}
           wordArray={wordArray} setWordArray={setWordArray}
           wordArrayUnderlined={wordArrayUnderlined} setWordArrayUnderlined={setWordArrayUnderlined}
           lettersSelected={lettersSelected} setLettersSelected={setLettersSelected}
-          disabledState={disabledState} setDisabledState={setDisabledState}
-          setGameImg={setGameImg} word={word}
+          word={word}
         />
       </div>
     );

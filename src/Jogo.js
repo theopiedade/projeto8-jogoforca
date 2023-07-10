@@ -6,9 +6,9 @@ const img = [
     "forca4.png", "forca5.png", "forca6.png"
   ]
 
-export default function Jogo({gameState, setGameState, gameCount, setGameCount,word, setWord,
-    wordArray, setWordArray,wordArrayUnderlined, setWordArrayUnderlined, 
-    disabledState, setDisabledState, gameImg, setGameImg, lettersSelected, setLettersSelected}) {
+export default function Jogo({gameState, setGameState, gameCount, setGameCount, setWord,
+    setWordArray, wordArrayUnderlined, setWordArrayUnderlined, 
+    setGameImg, setLettersSelected}) {
 
     function WordClass() {
         if (gameState === "Win") return "containerWord win";

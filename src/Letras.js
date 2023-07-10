@@ -9,10 +9,9 @@ let lSelected = [];
 
 export default function Letras ({gameState, setGameState, gameCount, setGameCount, wordArray, setWordArray,
     wordArrayUnderlined, setWordArrayUnderlined, lettersSelected, setLettersSelected, 
-    disabledState, setDisabledState, setGameImg, word}) {
+    word}) {
     
-    console.log("lettersSelected: "+lettersSelected);
-    
+ 
 
     function letterSelected (props) {
         if (lettersSelected.indexOf(props) > 0) return true;
@@ -20,7 +19,6 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
     }
     
     function letterSelect(props) {
-        console.log("Clicou e count ="+gameCount);
         setLettersSelected([...lettersSelected, props]);
         let array = [...wordArrayUnderlined];
         
@@ -41,7 +39,6 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
             if (array.toString() === wordArray.toString()) { 
                 setGameState("Win");
             }
-            console.log("word = "+word);
             setWordArrayUnderlined(array);
         } 
         
