@@ -8,6 +8,7 @@ export default function Chute ({gameState, setGameState,
     function iKnowTheWhord() {
         if (knowWord.toUpperCase() === word) {
             setGameState("Win");
+            setWordArrayUnderlined(wordArray);
         }
         else {
             setGameState("Game Over");
