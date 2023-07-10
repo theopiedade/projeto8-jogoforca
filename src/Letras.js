@@ -11,10 +11,9 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
     wordArrayUnderlined, setWordArrayUnderlined, lettersSelected, setLettersSelected, 
     word}) {
     
- 
 
     function letterSelected (props) {
-        if (lettersSelected.indexOf(props) > 0) return true;
+        if (lettersSelected.indexOf(props) >= 0) return true;
         else return false;
     }
     
@@ -44,9 +43,12 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
         
     }
 
+    function sendWord() {
+
+    }
+
     if (gameState == "Playing") 
     return (
-        <>
         <div className="containerWords">
             {
           alfabet.map( letter => 
@@ -59,10 +61,6 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
              )
             }
         </div>
-        <div className="bonus">
-            <h1>Já sei a palavra</h1> <input type="text"></input><button>Chutar</button>
-        </div>
-        </>
     );
 
     if (gameState != "Playing")

@@ -1,6 +1,7 @@
 import "../src/css/style.css"
 import Letras from "./Letras";
 import Jogo from "./Jogo";
+import Chute from "./Chute";
 import { useState } from "react";
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
           wordArrayUnderlined={wordArrayUnderlined} setWordArrayUnderlined={setWordArrayUnderlined}
           lettersSelected={lettersSelected} setLettersSelected={setLettersSelected}
           word={word}
+        />
+        <Chute gameState={gameState} setGameState={setGameState}
+        setWordArrayUnderlined={setWordArrayUnderlined} setGameCount={setGameCount}
+        word={word} wordArray={wordArray}
         />
       </div>
     );
