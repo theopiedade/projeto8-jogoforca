@@ -46,10 +46,11 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
 
     if (gameState == "Playing") 
     return (
+        <>
         <div className="containerWords">
             {
           alfabet.map( letter => 
-                <button
+                <button data-test="letter" 
                     key={letter} onClick={() => letterSelected(letter) ? "" : letterSelect(letter)}
                     disabled={letterSelected(letter)} 
                     className={letterSelected(letter) ? "disabled" : "enabled"}>
@@ -58,6 +59,10 @@ export default function Letras ({gameState, setGameState, gameCount, setGameCoun
              )
             }
         </div>
+        <div className="bonus">
+            <h1>Já sei a palavra</h1> <input type="text"></input><button>Chutar</button>
+        </div>
+        </>
     );
 
     if (gameState != "Playing")

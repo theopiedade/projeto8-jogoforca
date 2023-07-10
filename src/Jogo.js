@@ -44,10 +44,10 @@ export default function Jogo({gameState, setGameState, gameCount, setGameCount, 
 
       return (
         <div className="containerForkButtonWord">
-          <img src={`/assets/img/`+img[gameCount]}/>
+          <img data-test="game-image" src={`/assets/img/`+img[gameCount]}/>
           <div className="containerButtonWord">
-            <button onClick={() => GameStart()}>Escolher palavra</button>
-            <div className={WordClass()}>
+            <button data-test="choose-word" onClick={() => GameStart()}>Escolher palavra</button>
+            <div className={WordClass()} data-test="word">
               {
                 wordArrayUnderlined.map(letra => letra+" ")
               }
