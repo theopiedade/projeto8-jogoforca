@@ -53,6 +53,22 @@
     margin-bottom: 97px;
 }
 
+.win {
+    color:#27AE60;
+}
+
+.lose {
+    color: #F00;
+}
+
+.containerWords {
+    margin-left: 211px;
+    width: 710px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .containerWords {
     margin-left: 211px;
     width: 710px;

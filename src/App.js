@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function App() {
   
-  const [gameState, setGameState] = useState("init");
+  const [gameState, setGameState] = useState("waiting");
   const [gameCount, setGameCount] = useState(0);
   const [word, setWord] = useState("");
   const [wordArray, setWordArray] = useState([]);
@@ -25,7 +25,8 @@ function App() {
           wordArrayUnderlined={wordArrayUnderlined} 
           setWordArrayUnderlined={setWordArrayUnderlined}
           disabledState={disabledState} setDisabledState={setDisabledState}
-          gameImg={gameImg} setGameImg={setGameImg}
+          gameImg={gameImg} setGameImg={setGameImg} lettersSelected={lettersSelected}
+          setLettersSelected={setLettersSelected}
         />
         <Letras gameState={gameState} setGameState={setGameState} 
           gameCount={gameCount} setGameCount={setGameCount}

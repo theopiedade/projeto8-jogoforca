@@ -8,16 +8,23 @@ const img = [
 
 export default function Jogo({gameState, setGameState, gameCount, setGameCount,word, setWord,
     wordArray, setWordArray,wordArrayUnderlined, setWordArrayUnderlined, 
-    disabledState, setDisabledState, gameImg, setGameImg}) {
+    disabledState, setDisabledState, gameImg, setGameImg, lettersSelected, setLettersSelected}) {
 
-  
+    function WordClass() {
+        if (gameState === "Win") return "containerWord win";
+        if (gameState === "Game Over") return "containerWord lose";
+        return "containerWord"
+    }
    
     function GameStart() {
-        SelectWord();
+        setWordArray();
+        setWordArrayUnderlined();
+        setLettersSelected([]);
         setGameCount(0);
         setGameImg(img[0]);
-        setGameState("init");
-        setDisabledState(false);
+        setGameState("Playing");
+        SelectWord();
+        
       }
     
       function SelectWord() {
@@ -40,7 +47,7 @@ export default function Jogo({gameState, setGameState, gameCount, setGameCount,w
           <img src={`/assets/img/`+img[gameCount]}/>
           <div className="containerButtonWord">
             <button onClick={() => GameStart()}>Escolher palavra</button>
-            <div className="containerWord">
+            <div className={WordClass()}>
               {
                 wordArrayUnderlined.map(letra => letra+" ")
               }
